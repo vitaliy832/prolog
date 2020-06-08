@@ -1,0 +1,42 @@
+read_str(A):-get0(X),r_str(X,A,[]).
+r_str(10,A,A):-!.
+r_str(X,A,B):-append(B,[X],B1),get0(X1),r_str(X1,A,B1).
+
+
+:-dynamic pol/2.
+pol_r(X,Y):-repeat,(pol(X,Y) -> (nl,write(X),nl,write(Y),write("."), retract(pol(X,Y))); X=nil, Y=nil).
+read_pol(-1):-!.
+read_pol(_):-read_str(Lang), name(X,Lang),read(Y),asserta(pol(X,Y)), get0(Sym),read_pol(Sym).
+pr_pol_t:-tell('c:/7/pol.txt'), pol_r(X,_), X=nil, told.
+pr_pol_s:-see('c:/7/pol.txt'), get0(Sym), read_pol(Sym), seen.
+
+
+:-dynamic narod/2.
+narod_r(X,Y):-repeat,(narod(X,Y) -> (nl,write(X),nl,write(Y),write("."), retract(narod(X,Y))) ;X=nil,Y=nil).
+read_narod(-1):-!.
+read_narod(_):- read_str(Lang),name(X,Lang),read(Y),asserta(narod(X,Y)),get0(Sym),read_narod(Sym).
+pr_narod_t:-tell('c:/7/narod.txt'),narod_r(X,_),X=nil,told.
+pr_narod_s:-see('c:/7/narod.txt'), get0(Sym), read_narod(Sym),seen.
+
+
+:-dynamic mag/2.
+mag_r(X,Y):-repeat,(mag(X,Y) -> (nl,write(X),nl,write(Y),write("."), retract(mag(X,Y))); X=nil, Y=nil).
+read_mag(-1):-!.
+read_mag(_):-read_str(Lang), name(X,Lang),read(Y),asserta(mag(X,Y)), get0(Sym),read_mag(Sym).
+pr_mag_t:-tell('c:/7/mag.txt'), mag_r(X,_), X=nil, told.
+pr_mag_s:-see('c:/7/mag.txt'), get0(Sym), read_mag(Sym), seen.
+
+
+:-dynamic sila/2.
+sila_r(X,Y):-repeat,(sila(X,Y) -> (nl,write(X),nl,write(Y),write("."), retract(sila(X,Y))); X=nil, Y=nil).
+read_sila(-1):-!.
+read_sila(_):-read_str(Lang), name(X,Lang),read(Y),asserta(sila(X,Y)), get0(Sym),read_sila(Sym).
+pr_sila_t:-tell('c:/7/sila.txt'), sila_r(X,_), X=nil, told.
+pr_sila_s:-see('c:/7/sila.txt'), get0(Sym), read_sila(Sym), seen.
+
+:-dynamic smert/2.
+smert_r(X,Y):-repeat,(smert(X,Y) -> (nl,write(X),nl,write(Y),write("."), retract(smert(X,Y))); X=nil, Y=nil).
+read_smert(-1):-!.
+read_smert(_):-read_str(Lang), name(X,Lang),read(Y),asserta(smert(X,Y)), get0(Sym),read_smert(Sym).
+pr_smert_t:-tell('c:/7/smert.txt'), smert_r(X,_), X=nil, told.
+pr_smert_s:-see('c:/7/smert.txt'), get0(Sym), read_smert(Sym), seen.
